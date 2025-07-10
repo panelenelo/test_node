@@ -6,8 +6,9 @@ app.get("/", (req, res) => {
     res.send("Hi");
 })
 
-app.get("/contact", (req, res) => {
-    res.send("Contact infromation submitted successfully.");
+app.get("/items/:vegetable", (req, res) => {
+    let veg = req.params.vegetable;
+    res.send(`Request for ${veg}\n`);
 })
 
 .listen(port, () => {
