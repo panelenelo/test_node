@@ -21,6 +21,10 @@ app.use(
 
 app.use(express.json());
 
+app.get("/", (req, res) => {
+    res.send("<h1>Hi<\h1>")
+});
+
 app.post("/", (req, res) => {
     console.log(req.body);
     console.log(req.query);
