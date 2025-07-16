@@ -1,8 +1,10 @@
 const port = 3000,
     express = require("express"),
     app = express();
+    homeController = require("./controllers/homeController");
 
 /*
+
 app.get("/", (req, res) => {
     res.send("Hi");
 })
@@ -11,7 +13,7 @@ app.get("/items/:vegetable", (req, res) => {
     let veg = req.params.vegetable;
     res.send(`Request for ${veg}\n`);
 })
-*/
+
 
 app.use(
     express.urlencoded({
@@ -37,18 +39,22 @@ app.get('/user/:id', (req, res, next) => {
 }, (req, res, next) => {
   res.send('User Info')
 })
-
 // handler for the /user/:id path, which prints the user ID
 app.get('/user/:id', (req, res, next) => {
-  res.send(req.params.id)
+    res.send(req.params.id)
 })
+*/
 
 function fob(req, res) {
     console.log(req.originalUrl);
     res.send('Mango');
 }
 
-app.get('/base', fob);
+
+
+app.get("/", homeController.sendHi);
+
+app.get("/items/:vegetable", homeController.sendReqParam);
 
 
 app.listen(port, () => {
