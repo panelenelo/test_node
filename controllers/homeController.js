@@ -25,5 +25,10 @@ exports.checkItems = (req, res, next) => {
 }
 
 exports.respondWithName = (req, res) => {
-    res.render("index");
+    idName = req.params.idName;
+    if(idName){
+        res.render("index", {name: idName });
+    } else{
+        res.render("index", {name: "User" });
+    }
 }
