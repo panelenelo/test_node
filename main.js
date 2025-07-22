@@ -2,10 +2,13 @@ const port = 3000,
     express = require("express"),
     app = express(),
     homeController = require("./controllers/homeController"),
+    errorController = require("./controllers/errorController"),
     layouts = require("express-ejs-layouts");
 app.set("view engine", "ejs");
 
 app.use(layouts);
+app.use(errorController.logErrors);
+
 
 app.use(
     express.urlencoded({
