@@ -9,6 +9,7 @@ app.set("view engine", "ejs");
 
 app.use(layouts);
 app.use(errorController.logErrors);
+app.use(express.static("public"));
 
 
 app.use(
@@ -35,6 +36,9 @@ app.get("/name", homeController.respondWithName);
 app.get("/name/:idName", homeController.respondWithName);
 
 
+
+app.use(errorController.respondNoResourceFound);
+app.use(errorController.respondInternalError);
 
 
 app.listen(port, () => {
