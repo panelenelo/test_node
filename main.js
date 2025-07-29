@@ -3,8 +3,8 @@ const port = 3000,
     app = express(),
     homeController = require("./controllers/homeController"),
     errorController = require("./controllers/errorController"),
-    layouts = require("express-ejs-layouts"),
-    routesMap = new Map();
+    layouts = require("express-ejs-layouts");
+
 
 app.set("view engine", "ejs");
 app.use(layouts);
